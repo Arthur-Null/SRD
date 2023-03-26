@@ -1,0 +1,42 @@
+data:
+  type: TSMSDataset
+  file: data/pems(sample).h5
+  window: 12
+  horizon: 12
+  train_ratio: 0.7
+  test_ratio: 0.1
+  raw_label: False
+model:
+  type: minmaxsep
+  task: regression
+  optimizer: Adam
+  lr: 0.001
+  alpha1: 1.
+  alpha2: 1.
+  weight_decay: 0.0
+  loss_fn: mse
+  metrics: [mse, mae, corr, rrse, r2]
+  observe: mse
+  lower_is_better: True
+  max_epoches: 1000
+  early_stop: 30
+  batch_size: 128
+  aggregate: True
+runtime:
+  seed: 42
+  use_cuda: true
+network:
+  type: SRDGRU
+  spatial_embed: true
+  temporal_embed: true
+  temporal_emb_type: learn
+  hidden_size: 8
+  dropout: 0.1
+  num_layers: 3
+  is_bidir: True
+  cell_type: GRU
+  gcn_depth: 2
+  subgraph_size: 20
+  node_dim: 16
+  distance: fro
+
