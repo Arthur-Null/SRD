@@ -1,11 +1,11 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
 import re
 
 import numpy as np
 import torch
-from sklearn.metrics import (
-    r2_score,
-)
-
+from sklearn.metrics import r2_score
 
 EPS = 1e-5
 
@@ -15,7 +15,6 @@ def printt(s=None):
         print()
     else:
         print(str(s), end="\t")
-
 
 
 # loss and metric functions
@@ -103,7 +102,6 @@ class K(object):
             return torch.clamp(y, max=x)
         raise NotImplementedError("unsupported data type %s" % type(x))
 
-
     @staticmethod
     def r2_score(y, p):
         if isinstance(y, torch.Tensor):
@@ -174,7 +172,6 @@ def robust_batch_corr(x, y, axis=0, keepdims=True):
     x = robust_zscore(x, axis=axis)
     y = robust_zscore(y, axis=axis)
     return batch_corr(x, y)
-
 
 
 def r2(y, preds):
@@ -274,7 +271,6 @@ def single_mse(y_true, y_pred):
         loss = loss.mean()
 
         return loss
-
 
 
 def neg_wrapper(func):

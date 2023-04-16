@@ -1,13 +1,15 @@
-from typing import Any, Optional, Union, Iterable
-from numbers import Number
-import time
-import datetime
-from collections import namedtuple
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
 import copy
+import datetime
+import time
+from collections import namedtuple
+from numbers import Number
+from typing import Any, Iterable, Optional, Union
 
 import numpy as np
 import torch
-
 
 # Environment Classes
 Obs = namedtuple(

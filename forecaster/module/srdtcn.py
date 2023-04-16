@@ -1,10 +1,15 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
 from __future__ import division
+
+import numbers
+
 import torch
 import torch.nn as nn
-from torch.nn import init
-import numbers
 import torch.nn.functional as F
 from torch.distributions.kl import kl_divergence
+from torch.nn import init
 
 
 def gdistance_fro(A1, A2):

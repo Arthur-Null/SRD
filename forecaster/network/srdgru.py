@@ -1,7 +1,9 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
 from pathlib import Path
 from typing import Optional
 
-from .base import NETWORKS
 import torch
 import torch.nn as nn
 from utilsd import use_cuda
@@ -9,13 +11,8 @@ from utilsd import use_cuda
 from ..module import PositionEmbedding, get_cell
 from ..module.basic import SelectItem
 from ..module.srdgru import GraphRNNLayer
-from ..module.srdtcn import (
-    dyna_graph_constructor,
-    dyna_sparse_graph,
-    gdistance_fro,
-    graph_constructor,
-    sparse_graph,
-)
+from ..module.srdtcn import dyna_graph_constructor, dyna_sparse_graph, gdistance_fro, graph_constructor, sparse_graph
+from .base import NETWORKS
 
 
 @NETWORKS.register_module()

@@ -1,7 +1,10 @@
-from typing import List, Tuple, Optional, Union
-from pathlib import Path
-import numpy as np
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
 
+from pathlib import Path
+from typing import List, Optional, Tuple, Union
+
+import numpy as np
 import torch.nn as nn
 
 from .base import MODELS, BaseModel
@@ -102,9 +105,7 @@ class TS(BaseModel):
         elif task == "regression":
             self.act_out = nn.Identity()
         else:
-            raise ValueError(
-                ("Task must be 'classification', 'multiclassification', 'regression'")
-            )
+            raise ValueError(("Task must be 'classification', 'multiclassification', 'regression'"))
 
         if out_ranges is not None:
             self.out_ranges = []

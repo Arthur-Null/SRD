@@ -1,24 +1,27 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
 from pathlib import Path
 from typing import Optional
 
-from .base import NETWORKS
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from utilsd import use_cuda
 
 from ..module.srdtcn import (
-    gdistance_fro,
     LayerNorm,
-    graph_constructor,
-    dynamic_graph_constructor,
+    dilated_inception,
+    dilated_inception_ablation,
     dyna_mixprop,
+    dyna_sparse_graph,
+    dynamic_graph_constructor,
+    gdistance_fro,
+    graph_constructor,
     mixprop,
     sparse_graph,
-    dyna_sparse_graph,
-    dilated_inception_ablation,
-    dilated_inception,
 )
+from .base import NETWORKS
 
 
 @NETWORKS.register_module()

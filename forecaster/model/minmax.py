@@ -1,14 +1,13 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
 import copy
 import datetime
 import json
-from pathlib import Path
 import time
+from pathlib import Path
 from typing import List, Optional, Tuple, Union
 
-from ..common.function import printt
-from ..common.utils import AverageMeter, GlobalTracker, to_torch
-from .base import MODELS
-from .timeseries import TS
 import numpy as np
 import pandas as pd
 import torch
@@ -16,6 +15,11 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 from utilsd import use_cuda
 from utilsd.earlystop import EarlyStopStatus
+
+from ..common.function import printt
+from ..common.utils import AverageMeter, GlobalTracker, to_torch
+from .base import MODELS
+from .timeseries import TS
 
 
 @MODELS.register_module("minmaxsep")

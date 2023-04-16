@@ -1,17 +1,20 @@
-from typing import Optional, List
-from pathlib import Path
-import datetime
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
 import copy
-import time
+import datetime
 import json
+import time
+from pathlib import Path
+from typing import List, Optional
 
 import numpy as np
 import pandas as pd
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from torch.utils.data import DataLoader, Dataset
 from torch.utils.tensorboard.writer import SummaryWriter
-from torch.utils.data import Dataset, DataLoader
 from utilsd import use_cuda
 from utilsd.config import Registry
 from utilsd.earlystop import EarlyStop, EarlyStopStatus
@@ -287,7 +290,10 @@ class BaseModel(nn.Module):
             },
             self.checkpoint_dir / "resume.pth" if checkpoint_dir is None else checkpoint_dir / "resume.pth",
         )
-        print(f"Checkpoint saved to {self.checkpoint_dir / 'resume.pth' if checkpoint_dir is None else checkpoint_dir / 'resume.pth'}", __name__)
+        print(
+            f"Checkpoint saved to {self.checkpoint_dir / 'resume.pth' if checkpoint_dir is None else checkpoint_dir / 'resume.pth'}",
+            __name__,
+        )
 
     def _resume(self):
         if (self.checkpoint_dir / "resume.pth").exists():

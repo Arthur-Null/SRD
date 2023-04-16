@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
 from utilsd import get_output_dir, get_checkpoint_dir, setup_experiment
 from utilsd.experiment import print_config
 from utilsd.config import PythonConfig, RegistryConfig, RuntimeConfig, configclass
