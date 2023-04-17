@@ -1,7 +1,11 @@
+"""
+Code for positional encoding. From:
+https://github.com/pytorch/examples/blob/main/word_language_model/model.py
+"""
 import math
 
-import torch.nn as nn
 import torch
+import torch.nn as nn
 
 
 class PositionalEncoding(nn.Module):
